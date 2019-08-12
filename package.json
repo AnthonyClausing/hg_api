@@ -1,0 +1,34 @@
+{
+  "name": "hilarious_garbage",
+  "version": "1.0.0",
+  "description": "Clone of the site Funnyjunk using Graphql/PostgreSQL and Vuejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "seed": "node ./seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyClausing/hilarious_garbage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonyClausing/hilarious_garbage/issues"
+  },
+  "homepage": "https://github.com/AnthonyClausing/hilarious_garbage#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1",
+    "jsonwebtoken": "^8.4.0",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "5.12.2",
+    "sequelize-hierarchy": "^2.0.4"
+  }
+}
