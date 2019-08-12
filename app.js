@@ -2,7 +2,7 @@ require('dotenv').config()
 const graphqlHttp= require('express-graphql')
 const bodyParser = require('body-parser');
 const express = require('express');
-const { PORT } = process.env
+const PORT = process.env.PORT || 3000
 const db = require('./db');
 const graphQLSchema = require('./graphql/schema/index');
 const graphQLResolvers = require('./graphql/resolvers/index');
