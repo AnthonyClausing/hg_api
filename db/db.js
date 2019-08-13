@@ -1,21 +1,16 @@
 const Sequelize = require('sequelize')
 require('sequelize-hierarchy')(Sequelize)
-const {DB_NAME, DB_USER, DB_PASSWORD} = process.env
+const env = process.env.NODE_ENV || 'development';
+const config = require(__dirname + '/../config.json')[env];
+console.log(config)
 var db;
-if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
+if (config.use_env_variable) {
   // the application is executed on Heroku ... use the postgres database
-  db = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
-    dialect:  'postgres',
-    protocol: 'postgres',
-    port:     match[4],
-    host:     match[3],
-    logging:  true //false
-  })
+  db = new Sequelize(process.env[config.use_env_variable])
 } else {
-  db =  new Sequelize(
-    process.env.DATABASE_URL || DB_NAME, DB_USER, DB_PASSWORD, {
-      host: 'localhost',
-      dialect: 'postgres',
+  db =  new Sequelize(config.database, config.username, config.password, {
+      host: config.host,
+      dialect: config.dialect,
       logging: false
     }
   )
