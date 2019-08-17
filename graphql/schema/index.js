@@ -23,6 +23,7 @@ type Post {
   creator: User!
   comments: [Comment!]!
   createdAt: String!
+  count: Int!
 }
 
 type User {
@@ -57,7 +58,7 @@ input CommentInput {
 }
 
 type RootQuery {
-  posts: [Post!]!
+  posts(page: Int!): [Post!]!
   post(id: String!): Post!
   users: [User!]!
 }
