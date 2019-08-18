@@ -4,7 +4,7 @@ const { commentMapper } = require('./merge')
 module.exports = {
   
   posts: async (params) => {
-    const offset = (params.page - 1) * 15
+    const offset = (params.page - 1) * 5
     console.log(offset)
     const posts = await Post.findAll({offset: offset, limit: 4})
     const count = await Post.count()
