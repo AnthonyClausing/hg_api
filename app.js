@@ -6,11 +6,11 @@ const PORT = process.env.PORT || 3000
 const db = require('./db');
 const graphQLSchema = require('./graphql/schema/index');
 const graphQLResolvers = require('./graphql/resolvers/index');
-
+const history = require('connect-history-api-fallback');
 const app = express();
 
 app.use(bodyParser.json());
-
+app.use(history());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
