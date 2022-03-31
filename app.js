@@ -1,5 +1,5 @@
 require('dotenv').config()
-const graphqlHttp= require('express-graphql')
+const { graphqlHTTP } = require('express-graphql');
 const bodyParser = require('body-parser');
 const express = require('express');
 const PORT = process.env.PORT || 3000
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/graphql', graphqlHttp({
+app.use('/graphql', graphqlHTTP({
   schema: graphQLSchema,
   rootValue: graphQLResolvers,
   graphiql: true
